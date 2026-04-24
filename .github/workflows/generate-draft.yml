@@ -1,0 +1,42 @@
+name: Generate Draft
+
+on:
+  schedule:
+    # Tuesday and Thursday at 09:00 UTC (= 10:00 Paris in summer, 11:00 in winter).
+    # Tweak to match your audience's timezone. B2B peak is Tue–Thu, 8–10am local.
+    - cron: '0 9 * * 2,4'
+  workflow_dispatch: # lets you trigger manually from the Actions tab
+
+concurrency:
+  group: linkedin-bot-state
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Generate draft
+        run: npm run generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Commit state
+        run: |
+          git config user.name "linkedin-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add content/pending-drafts.json
+          git diff --cached --quiet || git commit -m "chore: new pending draft"
+          git push

@@ -1,0 +1,21 @@
+{
+  "name": "linkedin-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "tsx src/generate.ts",
+    "check-approval": "tsx src/check-approval.ts",
+    "test-linkedin": "tsx src/scripts/test-linkedin.ts",
+    "test-telegram": "tsx src/scripts/test-telegram.ts",
+    "test-claude": "tsx src/scripts/test-claude.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
