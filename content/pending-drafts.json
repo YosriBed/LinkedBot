@@ -1,8 +1,1 @@
-{
-  "17": {
-    "idea_id": "0a4593c2",
-    "post_text": "Sujet du jour: J'ai rendu toute notre API async, et j'ai tout cassé\n\nTu reprends une codebase Java/Spring. Quelqu'un a mis `CompletableFuture` partout \"pour la perf\". Les stack traces font 40 lignes, le contexte transactionnel disparaît à mi-chemin, et déboguer prend trois fois plus longtemps.\n\nTLDR; Async par défaut, c'est acheter de la complexité avant d'avoir prouvé qu'on a un problème de throughput.\n\nSync est lisible, traceable, et transactionnel sans effort. Tu sais exactement ce qui se passe dans quel ordre. Async devient pertinent quand tu as des I/O concurrents réels : appels parallèles à des services externes, traitements batch, file de messages. Pas pour une API CRUD qui répond en 40ms.\n\nLe reflexe \"async = moderne\" coûte cher en debug et en onboarding. Pars synchrone. Tu migreras les bons endroits quand les métriques te le demandent, pas avant.\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
-    "created_at": "2026-04-28T14:39:33.343Z",
-    "regen_count": 0
-  }
-}
+{}
