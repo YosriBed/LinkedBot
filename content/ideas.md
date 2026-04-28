@@ -25,7 +25,7 @@ Ajoute de nouvelles idées quand tu veux — append une ligne `- [ ]` et commit.
 
 - [ ] Migration Spring Boot 2 vers 3 : les deux pièges que personne ne documente
 - [ ] Migrer un projet legacy de Java 8 vers Java 21 : par où commencer
-- [ ] Java 21 en prod : les virtual threads valent vraiment le coup ?
+- [~] Java 21 en prod : les virtual threads valent vraiment le coup ?
 - [ ] L'index Postgres que j'ai oublié, et qui a couché la prod 4 heures
 - [ ] Sync vs async dans la communication entre services : quand l'un, quand l'autre
 - [ ] Sync vs async côté code applicatif : pourquoi async par défaut est une erreur
