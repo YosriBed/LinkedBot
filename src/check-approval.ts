@@ -1,12 +1,22 @@
-import { getUpdates, answerCallback, notify, type TelegramUpdate } from './clients/telegram.js';
-import { publishPost } from './clients/linkedin.js';
-import { markIdea } from './utils/ideas.js';
-import { readJson, writeJson, type PendingDrafts, type PublishedPost } from './utils/state.js';
+import {
+  getUpdates,
+  answerCallback,
+  notify,
+  type TelegramUpdate,
+} from "./clients/telegram.js";
+import { publishPost } from "./clients/linkedin.js";
+import { markIdea } from "./utils/ideas.js";
+import {
+  readJson,
+  writeJson,
+  type PendingDrafts,
+  type PublishedPost,
+} from "./utils/state.js";
 
-const IDEAS_PATH = 'content/ideas.md';
-const PENDING_PATH = 'content/pending-drafts.json';
-const PUBLISHED_PATH = 'content/published.json';
-const OFFSET_PATH = 'content/last-update-id.json';
+const IDEAS_PATH = "content/ideas.md";
+const PENDING_PATH = "content/pending-drafts.json";
+const PUBLISHED_PATH = "content/published.json";
+const OFFSET_PATH = "content/last-update-id.json";
 
 interface OffsetFile {
   last_id: number;
@@ -17,7 +27,7 @@ async function main() {
   const updates = await getUpdates(offsetFile.last_id + 1);
 
   if (updates.length === 0) {
-    console.log('No new Telegram updates.');
+    console.log("No new Telegram updates.");
     return;
   }
 
@@ -34,7 +44,9 @@ async function main() {
       await handleUpdate(update, pending, published);
     } catch (err) {
       console.error(`Failed to handle update ${update.update_id}:`, err);
-      await notify(`❌ Error handling update: ${(err as Error).message}`).catch(() => {});
+      await notify(`❌ Error handling update: ${(err as Error).message}`).catch(
+        () => {}
+      );
     }
   }
 
@@ -55,14 +67,14 @@ async function handleUpdate(
     const draft = pending[msgId];
 
     if (!draft) {
-      await answerCallback(cb.id, 'Draft not found (maybe already handled)');
+      await answerCallback(cb.id, "Draft not found (maybe already handled)");
       return;
     }
 
-    if (cb.data === 'approve') {
-      await answerCallback(cb.id, 'Publishing...');
+    if (cb.data === "approve") {
+      await answerCallback(cb.id, "Publishing...");
       const result = await publishPost(draft.post_text, draft.image_path);
-      await markIdea(IDEAS_PATH, draft.idea_id, 'x');
+      await markIdea(IDEAS_PATH, draft.idea_id, "x");
       published.push({
         idea_id: draft.idea_id,
         text: draft.post_text,
@@ -72,9 +84,9 @@ async function handleUpdate(
       });
       delete pending[msgId];
       await notify(`✅ Posted to LinkedIn:\n${result.url}`);
-    } else if (cb.data === 'skip') {
-      await answerCallback(cb.id, 'Skipped');
-      await markIdea(IDEAS_PATH, draft.idea_id, '~');
+    } else if (cb.data === "skip") {
+      await answerCallback(cb.id, "Skipped");
+      await markIdea(IDEAS_PATH, draft.idea_id, "~");
       delete pending[msgId];
       await notify(`❌ Skipped. Idea marked as [~] in ideas.md.`);
     }
@@ -89,7 +101,7 @@ async function handleUpdate(
 
     const editedText = update.message.text;
     const result = await publishPost(editedText, draft.image_path);
-    await markIdea(IDEAS_PATH, draft.idea_id, 'x');
+    await markIdea(IDEAS_PATH, draft.idea_id, "x");
     published.push({
       idea_id: draft.idea_id,
       text: editedText,

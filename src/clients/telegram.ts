@@ -34,7 +34,7 @@ export interface TelegramUpdate {
 /** Sends a draft post to Telegram. Returns the message_id so we can track approvals. */
 export async function sendDraft(
   text: string,
-  imagePath?: string,
+  imagePath?: string
 ): Promise<number> {
   const { chatId } = requireEnv();
 
@@ -56,14 +56,14 @@ export async function sendDraft(
     form.append(
       "photo",
       new Blob([new Uint8Array(imageBuffer)]),
-      "diagram.png",
+      "diagram.png"
     );
 
     const useCaption = text.length < 900;
     if (useCaption) {
       form.append(
         "caption",
-        `📝 Draft:\n\n${text}\n\n(Reply to this message with edited text to publish a modified version.)`,
+        `📝 Draft:\n\n${text}\n\n(Reply to this message with edited text to publish a modified version.)`
       );
       form.append("reply_markup", JSON.stringify(keyboard));
       const r = await fetch(`${base()}/sendPhoto`, {

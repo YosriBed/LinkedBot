@@ -6,7 +6,7 @@ const AUTHOR_URN = process.env.LINKEDIN_AUTHOR_URN; // e.g. urn:li:person:abc123
 function requireEnv() {
   if (!TOKEN || !AUTHOR_URN) {
     throw new Error(
-      "LINKEDIN_ACCESS_TOKEN and LINKEDIN_AUTHOR_URN must be set",
+      "LINKEDIN_ACCESS_TOKEN and LINKEDIN_AUTHOR_URN must be set"
     );
   }
   return { token: TOKEN, author: AUTHOR_URN };
@@ -15,7 +15,7 @@ function requireEnv() {
 /** Posts to LinkedIn. Returns a URL to the created post. */
 export async function publishPost(
   text: string,
-  imagePath?: string,
+  imagePath?: string
 ): Promise<{ url: string; id: string }> {
   const { token, author } = requireEnv();
 
@@ -92,11 +92,11 @@ async function uploadImage(imagePath: string): Promise<string> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(registerBody),
-    },
+    }
   );
   if (!reg.ok)
     throw new Error(
-      `LinkedIn registerUpload failed: ${reg.status} ${await reg.text()}`,
+      `LinkedIn registerUpload failed: ${reg.status} ${await reg.text()}`
     );
 
   const regData = await reg.json();
@@ -114,7 +114,7 @@ async function uploadImage(imagePath: string): Promise<string> {
   });
   if (!up.ok)
     throw new Error(
-      `LinkedIn image upload failed: ${up.status} ${await up.text()}`,
+      `LinkedIn image upload failed: ${up.status} ${await up.text()}`
     );
 
   return asset;

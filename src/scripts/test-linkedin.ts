@@ -13,7 +13,7 @@ async function main() {
   console.log(`\n✅ Posted! URL: ${result.url}`);
   console.log(`   ID:  ${result.id}`);
   console.log(
-    "\nGo delete it from your LinkedIn feed when you are done verifying.",
+    "\nGo delete it from your LinkedIn feed when you are done verifying."
   );
 }
 

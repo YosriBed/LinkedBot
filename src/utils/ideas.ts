@@ -29,11 +29,11 @@ export async function parseIdeas(path: string): Promise<Idea[]> {
 /** Picks a random unused idea. Pass excludeIds to avoid ideas already in pending-drafts. */
 export async function pickIdea(
   path: string,
-  excludeIds: string[] = [],
+  excludeIds: string[] = []
 ): Promise<Idea | null> {
   const ideas = await parseIdeas(path);
   const available = ideas.filter(
-    (i) => i.status === " " && !excludeIds.includes(i.id),
+    (i) => i.status === " " && !excludeIds.includes(i.id)
   );
   if (available.length === 0) return null;
   return available[Math.floor(Math.random() * available.length)];
@@ -43,7 +43,7 @@ export async function pickIdea(
 export async function markIdea(
   path: string,
   ideaId: string,
-  newStatus: "x" | "~",
+  newStatus: "x" | "~"
 ): Promise<void> {
   const content = await readFile(path, "utf-8");
   const lines = content.split("\n").map((line) => {

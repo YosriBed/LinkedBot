@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "idea_id": "3bd81857",
+    "text": "Le monorepo, j'y suis passé par obligation sur un projet à deux services. C'était une erreur.\n\nTurborepo configuré, workspace Yarn en place, pipeline CI à rallonge pour éviter de tout rebuilder à chaque commit. On a passé plus de temps à maintenir l'outillage qu'à shipper des features.\n\nMon seuil maintenant : 3 services minimum, avec des dépendances partagées réelles (une lib de types communs, un package de config, quelque chose). En dessous, deux repos séparés font le job, les builds restent simples, et on perd rien.\n\nAu-dessus de 3, le monorepo commence à rembourser : un seul endroit pour changer une interface partagée, les PRs qui touchent tout le scope, le refacto cross-services qui devient faisable sans jongler entre repos.\n\nBref, c'est pas une question de philosophie. C'est une question de quand le coût d'orchestration devient inférieur au coût de synchronisation.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:share:7454876805515268097/",
+    "posted_at": "2026-04-28T12:58:54.845Z",
+    "edited": false
+  }
+]

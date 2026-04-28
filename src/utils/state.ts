@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile } from "fs/promises";
 
 export interface PendingDraft {
   idea_id: string;
@@ -19,12 +19,12 @@ export interface PublishedPost {
 
 export async function readJson<T>(path: string, fallback: T): Promise<T> {
   try {
-    return JSON.parse(await readFile(path, 'utf-8')) as T;
+    return JSON.parse(await readFile(path, "utf-8")) as T;
   } catch {
     return fallback;
   }
 }
 
 export async function writeJson(path: string, data: unknown): Promise<void> {
-  await writeFile(path, JSON.stringify(data, null, 2) + '\n');
+  await writeFile(path, JSON.stringify(data, null, 2) + "\n");
 }
