@@ -1,1 +1,8 @@
-{}
+{
+  "18": {
+    "idea_id": "893706de",
+    "post_text": "Sujet du jour: J'ai fait perdre 4 heures à mon équipe sur un Dockerfile\n\nTu rejoins une mission. Le backend tourne parfaitement en local. Tu pousses sur l'environnement de staging, et là, rien. Crash au démarrage, stack trace qui pointe nulle part.\n\n𝗧𝗟𝗗𝗥; \"Ça marche sur ma machine\" n'est pas un bug de code, c'est un Dockerfile mal écrit.\n\nDans 80% des cas que j'ai vus, c'est le même scénario : une dépendance système installée manuellement en local, une variable d'environnement codée en dur, ou une image de base trop générique qui embarque une version différente du JDK. Le build passe, l'image est créée, mais le runtime s'effondre pour des raisons que personne ne comprend parce que personne ne lit le Dockerfile.\n\nLa règle que j'applique maintenant : le Dockerfile est la source de vérité de l'environnement, pas le wiki, pas le README. Si tu ne peux pas reproduire le bug dans le container, c'est que ton container est faux.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
+    "created_at": "2026-04-28T14:46:26.502Z",
+    "regen_count": 0
+  }
+}
