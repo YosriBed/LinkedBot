@@ -2,9 +2,11 @@ name: Check Approval
 
 on:
   schedule:
-    # Every 15 minutes. The latency between tapping approve and the post going live.
-    # Drop to '*/5' if you want snappier, but you'll hit the 2000 min/month free tier faster.
-    - cron: '*/15 * * * *'
+    # Toutes les 15 min, lundi à vendredi, entre 7h et 20h UTC
+    # = 8h-21h Paris en hiver, 9h-22h Paris en été
+    # Le weekend, rien : pas de draft pending donc rien à check.
+    # Hors plage, idem : tu valides en journée, pas à 3h du matin.
+    - cron: "*/15 7-19 * * 1-5"
   workflow_dispatch:
 
 concurrency:
@@ -21,8 +23,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - run: npm ci
 

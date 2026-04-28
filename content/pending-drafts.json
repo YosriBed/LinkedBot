@@ -1,8 +1,1 @@
-{
-  "19": {
-    "idea_id": "893706de",
-    "post_text": "Sujet du jour: J'ai fait perdre 4 heures à mon équipe sur un Dockerfile\n\nTu hérites d'un projet. La CI est rouge. Le dev qui t'a passé la main jure que ça tournait chez lui. Tu cherches pendant 2 heures avant de tomber sur le Dockerfile.\n\n𝗧𝗟𝗗𝗥; \"Ça marche sur ma machine\" est presque toujours un Dockerfile qui embarque l'environnement local sans le dire.\n\nL'image utilisait `node:18` sans épingler le digest. Entre deux builds, npm a résolu une dépendance transitive différemment. Résultat : un `undefined is not a function` en prod, introuvable en local. On a corrigé en épinglant `node:18.20.4-alpine` et en ajoutant un `package-lock.json` copié avant le `npm install`. Deux lignes. 4 heures perdues.\n\nLa règle que j'applique depuis : chaque Dockerfile doit produire le même artefact le mardi et le vendredi, peu importe la machine. Si c'est pas le cas, c'est pas un Dockerfile, c'est une prière.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
-    "created_at": "2026-04-28T14:48:02.588Z",
-    "regen_count": 1
-  }
-}
+{}
