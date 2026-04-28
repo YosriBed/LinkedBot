@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "idea_id": "6c507c45",
+    "text": "Sujet du jour: Ce que j'ai compris dès le premier jour en mission (trop tard)\n\nTu poses ton laptop. Café encore chaud. L'équipe te regarde du coin de l'œil en se demandant si tu vas leur sortir un audit PowerPoint ou vraiment coder.\n\n𝗧𝗟𝗗𝗥; En mission, ta posture compte plus que ta stack les trois premières semaines.\n\nLa tentation classique : montrer que t'as de la valeur vite. Du coup tu proposes des refactos, tu commentes les PR avec enthousiasme, tu sors des \"chez mon ancien client on faisait...\". Résultat : tu crées de la friction avant même d'avoir compris pourquoi le code est comme ça.\n\nCe qui marche vraiment : deux semaines à lire, poser des questions courtes, livrer des petites choses propres. T'as pas besoin d'impressionner. T'as besoin qu'on te fasse confiance pour accéder aux vrais sujets. La crédibilité se construit par les commits, pas par les réunions.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
+    "url": "https://www.linkedin.com/feed/update/urn:li:share:7454907050989531136/",
+    "posted_at": "2026-04-28T14:59:06.664Z",
+    "edited": false
+  }
+]

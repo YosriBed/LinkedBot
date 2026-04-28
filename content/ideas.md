@@ -49,7 +49,7 @@
 
 - [ ] Corpo ou startup, vraiment ? La vraie différence n'est pas où on croit
 - [ ] Ce que la corpo apporte qu'une startup ne peut pas (et inversement)
-- [ ] Travailler en mission : la posture qui change tout dès le premier jour
+- [x] Travailler en mission : la posture qui change tout dès le premier jour
 
 ## Tests & Qualité
 
