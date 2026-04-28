@@ -1,7 +1,1 @@
-{
-  "15": {
-    "idea_id": "2666eba8",
-    "post_text": "Sujet du jour: J'ai failli perdre un junior avec un commentaire de code review\n\nTu reprends une PR d'un dev junior. Le code tourne, mais l'intention est floue, les nommages approximatifs, la structure bancale. Tu pourrais tout réécrire dans les commentaires. Tu l'as déjà fait.\n\nTLDR; Un feedback qui démonte sans proposer crée de la méfiance, pas du progrès.\n\nLe truc que j'ai appris trop tard : séparer l'observation du jugement. \"Cette méthode fait trois choses\" plutôt que \"c'est trop complexe\". \"Je mettrais cette logique dans un service à part, pour cette raison\" plutôt que \"c'est mal structuré\". La différence paraît cosmétique, elle ne l'est pas. L'un ouvre une conversation, l'autre ferme une porte.\n\nEt si la PR est vraiment trop loin du compte, tu le dis en vocal, pas dans GitHub. Vingt commentaires négatifs à la suite, c'est pas du feedback, c'est un interrogatoire. Le contexte oral absorbe ce que l'écrit amplifie.\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
-    "created_at": "2026-04-28T14:31:04.999Z"
-  }
-}
+{}
