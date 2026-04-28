@@ -5,6 +5,8 @@ export interface PendingDraft {
   post_text: string;
   image_path?: string;
   created_at: string;
+  /** Number of times this idea has been regenerated in a row via skip. Used to cap the skip loop. */
+  regen_count?: number;
 }
 
 export type PendingDrafts = Record<string, PendingDraft>; // keyed by telegram message_id

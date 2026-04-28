@@ -1,15 +1,5 @@
 # Post ideas
 
-Format : une idée par ligne, commençant par `- [ ]`.
-
-- `[ ]` = pas encore utilisée (éligible à la génération)
-- `[x]` = déjà postée
-- `[~]` = sautée, ne pas re-piocher
-
-Le bot prend uniquement les `[ ]`. Il les marque automatiquement à l'approve/skip.
-
-Ajoute de nouvelles idées quand tu veux — append une ligne `- [ ]` et commit. Le prochain run du cron les aura à dispo.
-
 ## Architecture & Frontend
 
 - [ ] Microfrontend : quand c'est une bonne idée, et quand c'est juste de la complexité gratuite
@@ -49,7 +39,7 @@ Ajoute de nouvelles idées quand tu veux — append une ligne `- [ ]` et commit.
 
 - [ ] Mon premier 1-on-1 raté : ce que j'ai compris trop tard
 - [ ] Pourquoi je laisse mes devs dire non à des deadlines
-- [~] Donner du feedback qui ne casse pas la confiance
+- [ ] Donner du feedback qui ne casse pas la confiance
 - [ ] Management 3.0 : ce qui marche vraiment, ce qui sonne creux
 - [ ] Apprendre de ses devs : la posture que tous les leads devraient avoir
 - [ ] Gérer un conflit dans une équipe tech : intervenir tôt vs laisser se résoudre
