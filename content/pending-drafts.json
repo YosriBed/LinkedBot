@@ -4,5 +4,11 @@
     "post_text": "Sujet du jour: J'ai fait perdre 20 minutes à mon build Docker tous les jours pendant un mois\n\nTu reprends une image Docker qui se rebuild from scratch à chaque commit. Côté CI, c'est 8 minutes de `npm install` à chaque run. Personne n'a jamais investigué.\n\n𝗧𝗟𝗗𝗥; Copier le `package.json` avant le reste du code, c'est la différence entre un layer mis en cache et un `npm install` relancé à chaque build.\n\nDocker construit par layers. Si tu fais `COPY . .` en premier, le moindre changement dans ton code invalide le cache, et tout ce qui suit est réexécuté, y compris l'installation des dépendances. Deux lignes dans ton Dockerfile changent tout : `COPY package*.json ./` puis `RUN npm install`, et seulement après `COPY . .`.\n\nRésultat : tant que tu ne touches pas au `package.json`, les dépendances restent cachées. Sur une CI qui tourne 15 fois par jour, t'économises facilement 1h30 quotidienne pour toute l'équipe.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
     "created_at": "2026-04-30T10:47:01.689Z",
     "regen_count": 0
+  },
+  "24": {
+    "idea_id": "dadc631c",
+    "post_text": "Sujet du jour: J'ai mis 3 heures à comprendre que le test n'était pas le problème\n\nLa CI passe en local, échoue sur le pipeline. Tu relances. Vert. Tu relances encore. Rouge. Le test flaky classique : tout le monde le connaît, personne ne le touche.\n\n𝗧𝗟𝗗𝗥; Un test flaky, c'est rarement le test qui est cassé — vérifie l'ordre d'exécution et les données partagées avant de réécrire quoi que ce soit.\n\nPremier réflexe à avoir : est-ce que le test dépend d'un état global laissé par un autre test ? Une base H2 mal réinitialisée, un bean Spring en cache entre deux suites, un fichier temporaire non nettoyé. En parallèle, vérifie si le test est sensible à l'ordre d'exécution. JUnit ne garantit rien sur l'ordre par défaut.\n\nDans 80% des cas que j'ai vus, le fix c'est un `@BeforeEach` qui manque ou une transaction qui ne rollback pas. Pas une réécriture du test.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
+    "created_at": "2026-05-05T10:28:31.045Z",
+    "regen_count": 0
   }
 }
