@@ -10,5 +10,11 @@
     "post_text": "Sujet du jour: J'ai mis 3 heures à comprendre que le test n'était pas le problème\n\nLa CI passe en local, échoue sur le pipeline. Tu relances. Vert. Tu relances encore. Rouge. Le test flaky classique : tout le monde le connaît, personne ne le touche.\n\n𝗧𝗟𝗗𝗥; Un test flaky, c'est rarement le test qui est cassé — vérifie l'ordre d'exécution et les données partagées avant de réécrire quoi que ce soit.\n\nPremier réflexe à avoir : est-ce que le test dépend d'un état global laissé par un autre test ? Une base H2 mal réinitialisée, un bean Spring en cache entre deux suites, un fichier temporaire non nettoyé. En parallèle, vérifie si le test est sensible à l'ordre d'exécution. JUnit ne garantit rien sur l'ordre par défaut.\n\nDans 80% des cas que j'ai vus, le fix c'est un `@BeforeEach` qui manque ou une transaction qui ne rollback pas. Pas une réécriture du test.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
     "created_at": "2026-05-05T10:28:31.045Z",
     "regen_count": 0
+  },
+  "25": {
+    "idea_id": "1d2f8ce2",
+    "post_text": "Sujet du jour: Le microfrontend m'a coûté 3 sprints pour rien\n\nTu reprends un projet React. L'architecture précédente a découpé l'app en 6 microfrontends distincts. Module Federation, build séparés, déploiements indépendants. Sur le papier, c'est propre. En pratique, changer un composant partagé te coûte 4 PRs et une coordination entre 3 équipes.\n\n𝗧𝗟𝗗𝗥; Le microfrontend ne vaut le coup qu'avec des équipes réellement indépendantes qui déploient à des rythmes différents.\n\nLe vrai critère, c'est pas la taille du projet. C'est l'organisation humaine derrière. Si deux équipes touchent souvent les mêmes zones fonctionnelles, le découpage devient un frein, pas une liberté. Tu passes plus de temps à synchroniser les versions de tes shared libraries qu'à livrer des features.\n\nEn dessous de 3 équipes autonomes avec des backlogs vraiment séparés, un monolithe frontend bien structuré en feature folders fait le job. Sans le coût d'orchestration.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
+    "created_at": "2026-05-07T11:01:10.282Z",
+    "regen_count": 0
   }
 }
