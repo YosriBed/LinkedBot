@@ -39,22 +39,19 @@ async function main() {
   let maxId = offsetFile.last_id;
 
   for (const update of updates) {
-    maxId = Math.max(maxId, update.update_id);
     try {
-      // Re-read state inside the loop so each iteration sees fresh data
-      // (matters when generateAndSend writes new pending drafts mid-loop).
       const pending = await readJson<PendingDrafts>(PENDING_PATH, {});
       const published = await readJson<PublishedPost[]>(PUBLISHED_PATH, []);
-
       const updated = await handleUpdate(update, pending, published);
-
       if (updated.pendingDirty) await writeJson(PENDING_PATH, pending);
       if (updated.publishedDirty) await writeJson(PUBLISHED_PATH, published);
+      maxId = Math.max(maxId, update.update_id); // seulement si tout s'est bien passé
     } catch (err) {
       console.error(`Failed to handle update ${update.update_id}:`, err);
       await notify(`❌ Error handling update: ${(err as Error).message}`).catch(
         () => {}
       );
+      break; // on s'arrête, on retry au prochain run
     }
   }
 
