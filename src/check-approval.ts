@@ -27,7 +27,8 @@ interface OffsetFile {
 
 async function main() {
   const offsetFile = await readJson<OffsetFile>(OFFSET_PATH, { last_id: 0 });
-  const updates = await getUpdates(offsetFile.last_id + 1);
+  const lastId = Number.isFinite(offsetFile.last_id) ? offsetFile.last_id : 0;
+  const updates = await getUpdates(lastId + 1);
 
   if (updates.length === 0) {
     console.log("No new Telegram updates.");

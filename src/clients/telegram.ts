@@ -124,7 +124,10 @@ export async function notify(text: string): Promise<void> {
 
 /** Gets updates (button presses, replies) since `offset`. */
 export async function getUpdates(offset: number): Promise<TelegramUpdate[]> {
-  const r = await fetch(`${base()}/getUpdates?offset=${offset}&timeout=0`);
+  const url =
+    `${base()}/getUpdates?offset=${offset}&timeout=0` +
+    `&allowed_updates=${encodeURIComponent(JSON.stringify(["message", "callback_query"]))}`;
+  const r = await fetch(url);
   const data = await r.json();
   if (!data.ok)
     throw new Error(`Telegram getUpdates failed: ${JSON.stringify(data)}`);
