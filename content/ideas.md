@@ -3,7 +3,7 @@
 ## Architecture & Frontend
 
 - [ ] Microfrontend : à partir de quand ça vaut vraiment le coup
-- [ ] Microfrontend : ce qu'on découvre au bout de 6 mois en prod
+- [x] Microfrontend : ce qu'on découvre au bout de 6 mois en prod
 - [ ] Migrer un projet Vue ou Angular vers React : la grille de décision que je suis
 - [ ] Construire un dashboard 3D en React : ce que three.js change côté perf
 - [ ] Le 3D dans une UI métier : démo bluffante, prod compliquée
