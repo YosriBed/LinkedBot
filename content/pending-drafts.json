@@ -1,1 +1,8 @@
-{}
+{
+  "28": {
+    "idea_id": "8fbc6a39",
+    "post_text": "Sujet du jour: J'ai ignoré trois signaux faibles. La réunion de vendredi a failli partir en vrille.\n\nL'ambiance est bonne en apparence. Les stand-ups sont courts, les PRs passent. Mais il y a des silences un peu trop longs quand un nom est mentionné. Des \"ouais on verra\" en fin de discussion. Un commentaire de code trop sec.\n\n𝗧𝗟𝗗𝗥; Un conflit tech se désamorce en deux jours si tu le vois venir, et en deux semaines si tu l'as raté.\n\nLes signaux faibles sont presque toujours techniques en surface : une PR qui traine sans review, un refacto \"proposé\" deux fois sans suite, une décision d'archi jamais vraiment acté par écrit. Derrière, c'est souvent un problème d'ownership flou ou une frustration non dite.\n\nCe que j'ai appris à faire : nommer explicitement la tension en one-to-one avant qu'elle arrive en réunion. Pas de médiation formelle, juste \"j'ai l'impression qu'il y a un désaccord sur ce point, c'est quoi ta lecture ?\". Neuf fois sur dix, ça suffit.\n\nPour les curieux : https://github.com/YosriBed/LinkedBot\n\nNouvel épisode tous les mardis et jeudis. Suivez la série \"mission IT\".",
+    "created_at": "2026-05-14T11:08:46.022Z",
+    "regen_count": 0
+  }
+}
